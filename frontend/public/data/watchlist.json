@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "last_updated": "2026-01-12T10:26:39.347328Z",
+  "version": "1.0.1",
+  "last_updated": "2026-01-12T18:35:00Z",
   "products": [
     {
       "id": 1,
@@ -12,18 +12,13 @@
       "foodguard_score": 10,
       "weekly_target_qty": 2,
       "max_price": 15.0,
+      "ingredients": "鲭鱼(72%)、橄榄油(27%)、盐",
+      "certifications": ["Fair Trade", "British Great Taste Award"],
       "platform_products": {
-        "fossa": {
-          "url": "https://www.fossaprovisions.com/collections/jose-gourmet"
-        },
-        "morning_market": {
-          "url": "https://morning.market/products/jose-gourmet-sardines",
-          "price": 11.5
-        }
+        "fossa": {"url": "https://www.fossaprovisions.com/collections/jose-gourmet", "price": 12.90, "in_stock": true},
+        "morning_market": {"url": "https://morning.market/products/jose-gourmet-sardines", "price": 11.50, "in_stock": true}
       },
-      "availability_status": {},
-      "current_best_price": null,
-      "notes": "Fair Trade认证，艺术包装，适合鲭鱼入门",
+      "notes": "Fair Trade认证，艺术包装，适合鲭鱼入门。仅3种天然成分，无合成叶酸/MSG/防腐剂",
       "image": "https://www.fossaprovisions.com/cdn/shop/products/Jg_small_mack_oo-removebg-preview_1024x1024@2x.png"
     },
     {
@@ -36,15 +31,13 @@
       "foodguard_score": 10,
       "weekly_target_qty": 3,
       "max_price": 12.0,
+      "ingredients": "沙丁鱼(70.8%)、有机特级初榨橄榄油(28%)、盐",
+      "certifications": ["MSC", "Organic (PT-BIO-03)"],
       "platform_products": {
-        "little_farms": {
-          "url": "https://littlefarms.com/sardines-evoo-120g-607434",
-          "price": 9.48
-        }
+        "little_farms": {"url": "https://littlefarms.com/sardines-evoo-120g-607434", "price": 9.48, "in_stock": false},
+        "little_farms_brand": {"url": "https://littlefarms.com/brands/the-stock-merchant", "in_stock": true}
       },
-      "availability_status": {},
-      "current_best_price": null,
-      "notes": "MSC+有机双认证，MTHFR最佳选择，目前Little Farms缺货",
+      "notes": "MSC+有机双认证，MTHFR最佳选择。新用户码WELCOME20首单8折",
       "image": "https://cdn.shopify.com/s/files/1/0553/1521/products/TheStockMerchant-SardinesInExtraVirginOliveOil-120g_1024x1024.jpg"
     },
     {
@@ -57,14 +50,13 @@
       "foodguard_score": 10,
       "weekly_target_qty": 2,
       "max_price": 25.0,
+      "ingredients": "沙丁鱼、有机特级初榨橄榄油(35%)、盐",
+      "certifications": ["Organic EVOO", "BPA-Free", "Dolphin Safe"],
       "platform_products": {
-        "scoop": {
-          "url": "https://scoopwholefoodsshop.com/products/sardines-extra-virgin-org-olive-oil-jar"
-        }
+        "scoop_jar": {"url": "https://scoopwholefoodsshop.com/products/sardines-extra-virgin-org-olive-oil-jar", "price": 10.0, "in_stock": true},
+        "scoop_can": {"url": "https://scoopwholefoodsshop.com/products/sardines-extra-virgin-org-olive-oil-can", "price": 8.0, "in_stock": true}
       },
-      "availability_status": {},
-      "current_best_price": null,
-      "notes": "35%有机EVOO，BPA-Free，夜捕晨加工",
+      "notes": "35%有机EVOO，BPA-Free，夜捕晨加工。门店：Tanglin Mall/Great World/PLQ",
       "image": "https://cdn.shopify.com/s/files/1/0278/8577/0734/products/sardines-olive-oil_1024x1024.jpg"
     },
     {
@@ -77,23 +69,14 @@
       "foodguard_score": 10,
       "weekly_target_qty": 2,
       "max_price": 15.0,
+      "ingredients": "沙丁鱼(72%)、橄榄油(22%)、黄瓜、辣椒(2%)、胡萝卜、盐、丁香、黑胡椒、月桂叶",
+      "certifications": ["BPA-Free"],
       "platform_products": {
-        "lazada_sg": {
-          "url": "https://www.lazada.sg/products/nuri-spiced-sardines-in-olive-oil-125g-i1224956803.html",
-          "product_id": "1224956803",
-          "in_stock": false,
-          "last_checked": "2026-01-12"
-        },
-        "amazon_sg": {
-          "url": "https://www.amazon.sg/nuri-sardines/s?k=nuri+sardines",
-          "search_url": true,
-          "in_stock": false,
-          "last_checked": "2026-01-12"
-        }
+        "royale_gourmet": {"url": "https://royalegourmet.com/product/nuri-spiced-sardines-in-olive-oil-125g/", "price": 10.0, "in_stock": true},
+        "amazon_sg": {"url": "https://www.amazon.sg/Nuri-Sardines-Olive-Oil-125/dp/B08NFNHP3J", "price": 12.0, "in_stock": false},
+        "lazada_sg": {"url": "https://www.lazada.sg/products/nuri-spiced-sardines-in-olive-oil-125g-i1224956803.html", "in_stock": false}
       },
-      "availability_status": {},
-      "current_best_price": null,
-      "notes": "绿色包装香料版是入坑必选，37道手工工序，BPA-Free。Lazada/Amazon均缺货，需监控补货。",
+      "notes": "绿色包装香料版是入坑必选，37道手工工序，BPA-Free。天然香料平衡鱼腥",
       "image": "https://m.media-amazon.com/images/I/71qWDGzL8ZL._SL1500_.jpg"
     },
     {
@@ -106,18 +89,14 @@
       "foodguard_score": 9,
       "weekly_target_qty": 2,
       "max_price": 25.0,
+      "ingredients": "沙丁鱼(74.6%)、橄榄油(12.7%)、盐(12.7%)",
+      "certifications": [],
       "platform_products": {
-        "amazon_fresh": {
-          "url": "https://www.amazon.sg/dp/B0076ZQLH8",
-          "price": 18.0
-        },
-        "little_farms": {
-          "url": "https://littlefarms.com/ortiz-sardines-old-style-140g-604794"
-        }
+        "little_farms_140g": {"url": "https://littlefarms.com/ortiz-sardines-old-style-140g-604794", "in_stock": true},
+        "little_farms_190g": {"url": "https://littlefarms.com/sardines-in-olive-oil-190g-601351", "in_stock": true},
+        "lazada_culina": {"url": "https://www.lazada.sg/products/ortiz-premium-sardines-in-olive-oil-chilled-by-culina-i304222123.html", "in_stock": true}
       },
-      "availability_status": {},
-      "current_best_price": null,
-      "notes": "西班牙顶级品牌1896年，Amazon Fresh有超值价S$18",
+      "notes": "西班牙顶级品牌1896年创立，老式风格手工清洗包装。满$100免运费",
       "image": "https://m.media-amazon.com/images/I/71LvUjl5q2L._SL1500_.jpg"
     },
     {
@@ -130,17 +109,14 @@
       "foodguard_score": 9,
       "weekly_target_qty": 2,
       "max_price": 30.0,
+      "ingredients": "沙丁鱼、橄榄油、盐",
+      "certifications": [],
       "platform_products": {
-        "lata_shop": {
-          "url": "https://lata.shop/collections/ramon-pena"
-        },
-        "la_tienda": {
-          "url": "https://www.tienda.com/products/sardinillas-olive-oil-ramon-pena-se-171.html"
-        }
+        "lata_shop": {"url": "https://lata.shop/collections/ramon-pena", "in_stock": true},
+        "la_tienda": {"url": "https://www.tienda.com/products/sardinillas-olive-oil-ramon-pena-se-171.html", "in_stock": true},
+        "amazon_us": {"url": "https://www.amazon.com/Ramon-Pena-Sardines-Olive-Oil/dp/B01MDV48OC", "in_stock": true}
       },
-      "availability_status": {},
-      "current_best_price": null,
-      "notes": "沙丁鱼罐头的终极形态，新加坡渠道有限，需特订或国际配送",
+      "notes": "沙丁鱼罐头的终极形态，1920年创立。当日捕捞当日装罐，独特烘烤工艺。新加坡需国际配送",
       "image": "https://www.conservasramonpena.com/wp-content/uploads/2021/04/sardinillas-aceite-oliva-16-20-piezas-linea-oro.png"
     }
   ]
