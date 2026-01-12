@@ -1,0 +1,131 @@
+# Grocery Manager Configuration
+
+app:
+  name: "Grocery Manager"
+  version: "0.2.0"
+  debug: true
+
+database:
+  url: "sqlite+aiosqlite:///./data/grocery.db"
+
+# Platform Configuration
+# =====================
+# All platforms use web scraping by default
+# API credentials are optional for enhanced features
+
+platforms:
+  # === Mainstream Supermarkets ===
+
+  fairprice:
+    enabled: true
+    # NTUC FairPrice - Singapore's largest supermarket
+    # No API - uses web scraping
+    base_url: "https://www.fairprice.com.sg"
+
+  cold_storage:
+    enabled: false
+    base_url: "https://coldstorage.com.sg"
+
+  # === Major E-commerce ===
+
+  shopee:
+    enabled: false
+    # Requires Shopee Open Platform developer account
+    partner_id: ""
+    partner_key: ""
+    shop_id: ""
+
+  lazada:
+    enabled: false
+    # Requires Lazada Open Platform developer account
+    # RedMart products available through Lazada
+    app_key: ""
+    app_secret: ""
+    access_token: ""
+
+  amazon_sg:
+    enabled: true
+    # Amazon Singapore - uses web scraping
+    # Optional: Product Advertising API for enhanced features
+    base_url: "https://www.amazon.sg"
+    associate_tag: ""    # Optional: Amazon Associates tag
+    access_key: ""       # Optional: PA-API access key
+    secret_key: ""       # Optional: PA-API secret key
+
+  # === Specialty / Premium Stores ===
+
+  iherb:
+    enabled: true
+    # iHerb - Health supplements, vitamins, wellness
+    # Prices in SGD
+    base_url: "https://sg.iherb.com"
+
+  little_farms:
+    enabled: true
+    # Little Farms - Organic produce, artisan foods
+    base_url: "https://littlefarms.com"
+
+  ryans_grocery:
+    enabled: true
+    # Ryan's Grocery - Imported specialty foods
+    # Australian beef, imported cheeses, gourmet items
+    base_url: "https://rfrsh.rfrsh.com"
+
+  meidiya:
+    enabled: true
+    # Meidi-Ya - Japanese supermarket
+    # Japanese groceries, sake, wagyu, sashimi
+    base_url: "https://www.meidi-ya.com.sg"
+
+# Scheduler Configuration
+scheduler:
+  price_monitor:
+    enabled: true
+    interval_hours: 6    # Check prices every 6 hours
+
+  inventory_check:
+    enabled: true
+    cron_hour: 8         # Daily at 8 AM
+
+  shopping_list_generation:
+    enabled: true
+    cron_day: "sun"      # Weekly on Sunday
+    cron_hour: 10        # At 10 AM
+
+  promo_check:
+    enabled: true
+    interval_hours: 12   # Check promotions every 12 hours
+
+# Notification Settings
+notifications:
+  enabled: false
+
+  telegram:
+    bot_token: ""
+    chat_id: ""
+
+  email:
+    smtp_server: ""
+    smtp_port: 587
+    username: ""
+    password: ""
+    to_address: ""
+
+# Inventory Settings
+inventory:
+  default_min_quantity: 1
+  expiry_warning_days: 7
+  low_stock_alert: true
+
+# Price Monitoring
+price_monitor:
+  track_history: true
+  history_retention_days: 90
+  alert_on_price_drop: true
+  price_drop_threshold_percent: 10
+
+# Search Settings
+search:
+  default_limit: 20
+  max_concurrent_platforms: 3   # Limit concurrent scraping
+  request_delay_ms: 1000        # Delay between requests (be polite)

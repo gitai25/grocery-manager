@@ -1,0 +1,27 @@
+# Cloudflare Pages Configuration
+# This project uses a split architecture:
+# - Frontend: Cloudflare Pages (static files)
+# - Backend API: Self-hosted (Railway, Fly.io, VPS, etc.)
+
+name = "grocery-manager"
+compatibility_date = "2024-01-01"
+
+# Pages configuration
+[site]
+bucket = "./frontend/public"
+
+# Environment variables for frontend build
+[vars]
+# Set your API URL here or via Cloudflare dashboard
+# API_URL = "https://your-api-server.com"
+
+# Production environment
+[env.production]
+name = "grocery-manager-prod"
+
+[env.production.vars]
+# API_URL = "https://api.yourdomain.com"
+
+# Preview environment
+[env.preview]
+name = "grocery-manager-preview"

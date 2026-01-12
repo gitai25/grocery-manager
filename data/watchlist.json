@@ -1,0 +1,147 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-01-12T10:26:39.347328Z",
+  "products": [
+    {
+      "id": 1,
+      "brand": "José Gourmet",
+      "name": "Small Mackerel in Olive Oil",
+      "category": "mackerel",
+      "origin_country": "Portugal",
+      "size": "120g",
+      "foodguard_score": 10,
+      "weekly_target_qty": 2,
+      "max_price": 15.0,
+      "platform_products": {
+        "fossa": {
+          "url": "https://www.fossaprovisions.com/collections/jose-gourmet"
+        },
+        "morning_market": {
+          "url": "https://morning.market/products/jose-gourmet-sardines",
+          "price": 11.5
+        }
+      },
+      "availability_status": {},
+      "current_best_price": null,
+      "notes": "Fair Trade认证，艺术包装，适合鲭鱼入门",
+      "image": "https://www.fossaprovisions.com/cdn/shop/products/Jg_small_mack_oo-removebg-preview_1024x1024@2x.png"
+    },
+    {
+      "id": 2,
+      "brand": "The Stock Merchant",
+      "name": "MSC Sardines in Organic EVOO",
+      "category": "sardines",
+      "origin_country": "Australia/Portugal",
+      "size": "120g",
+      "foodguard_score": 10,
+      "weekly_target_qty": 3,
+      "max_price": 12.0,
+      "platform_products": {
+        "little_farms": {
+          "url": "https://littlefarms.com/sardines-evoo-120g-607434",
+          "price": 9.48
+        }
+      },
+      "availability_status": {},
+      "current_best_price": null,
+      "notes": "MSC+有机双认证，MTHFR最佳选择，目前Little Farms缺货",
+      "image": "https://cdn.shopify.com/s/files/1/0553/1521/products/TheStockMerchant-SardinesInExtraVirginOliveOil-120g_1024x1024.jpg"
+    },
+    {
+      "id": 3,
+      "brand": "Good Fish",
+      "name": "Sardines in Organic EVOO",
+      "category": "sardines",
+      "origin_country": "Australia",
+      "size": "120g/195g",
+      "foodguard_score": 10,
+      "weekly_target_qty": 2,
+      "max_price": 25.0,
+      "platform_products": {
+        "scoop": {
+          "url": "https://scoopwholefoodsshop.com/products/sardines-extra-virgin-org-olive-oil-jar"
+        }
+      },
+      "availability_status": {},
+      "current_best_price": null,
+      "notes": "35%有机EVOO，BPA-Free，夜捕晨加工",
+      "image": "https://cdn.shopify.com/s/files/1/0278/8577/0734/products/sardines-olive-oil_1024x1024.jpg"
+    },
+    {
+      "id": 4,
+      "brand": "NURI",
+      "name": "Spiced Sardines in Olive Oil",
+      "category": "sardines",
+      "origin_country": "Portugal",
+      "size": "125g",
+      "foodguard_score": 10,
+      "weekly_target_qty": 2,
+      "max_price": 15.0,
+      "platform_products": {
+        "lazada_sg": {
+          "url": "https://www.lazada.sg/products/nuri-spiced-sardines-in-olive-oil-125g-i1224956803.html",
+          "product_id": "1224956803",
+          "in_stock": false,
+          "last_checked": "2026-01-12"
+        },
+        "amazon_sg": {
+          "url": "https://www.amazon.sg/nuri-sardines/s?k=nuri+sardines",
+          "search_url": true,
+          "in_stock": false,
+          "last_checked": "2026-01-12"
+        }
+      },
+      "availability_status": {},
+      "current_best_price": null,
+      "notes": "绿色包装香料版是入坑必选，37道手工工序，BPA-Free。Lazada/Amazon均缺货，需监控补货。",
+      "image": "https://m.media-amazon.com/images/I/71qWDGzL8ZL._SL1500_.jpg"
+    },
+    {
+      "id": 5,
+      "brand": "Ortiz",
+      "name": "Sardinas a la Antigua",
+      "category": "sardines",
+      "origin_country": "Spain",
+      "size": "140g/190g",
+      "foodguard_score": 9,
+      "weekly_target_qty": 2,
+      "max_price": 25.0,
+      "platform_products": {
+        "amazon_fresh": {
+          "url": "https://www.amazon.sg/dp/B0076ZQLH8",
+          "price": 18.0
+        },
+        "little_farms": {
+          "url": "https://littlefarms.com/ortiz-sardines-old-style-140g-604794"
+        }
+      },
+      "availability_status": {},
+      "current_best_price": null,
+      "notes": "西班牙顶级品牌1896年，Amazon Fresh有超值价S$18",
+      "image": "https://m.media-amazon.com/images/I/71LvUjl5q2L._SL1500_.jpg"
+    },
+    {
+      "id": 6,
+      "brand": "Ramón Peña",
+      "name": "Sardines in Olive Oil Gold Line",
+      "category": "sardines",
+      "origin_country": "Spain",
+      "size": "130g",
+      "foodguard_score": 9,
+      "weekly_target_qty": 2,
+      "max_price": 30.0,
+      "platform_products": {
+        "lata_shop": {
+          "url": "https://lata.shop/collections/ramon-pena"
+        },
+        "la_tienda": {
+          "url": "https://www.tienda.com/products/sardinillas-olive-oil-ramon-pena-se-171.html"
+        }
+      },
+      "availability_status": {},
+      "current_best_price": null,
+      "notes": "沙丁鱼罐头的终极形态，新加坡渠道有限，需特订或国际配送",
+      "image": "https://www.conservasramonpena.com/wp-content/uploads/2021/04/sardinillas-aceite-oliva-16-20-piezas-linea-oro.png"
+    }
+  ]
+}

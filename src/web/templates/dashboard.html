@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Manager - 库存监控</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        header .subtitle {
+            color: #888;
+            font-size: 1.1em;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .stat-value.available { color: #00ff88; }
+        .stat-value.unavailable { color: #ff4444; }
+        .stat-value.total { color: #00d4ff; }
+
+        .stat-label {
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .last-update {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .product-card.available {
+            border-color: #00ff88;
+        }
+
+        .product-card.unavailable {
+            border-color: #ff4444;
+            opacity: 0.8;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: #fff;
+            padding: 20px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .product-brand {
+            color: #00d4ff;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 5px 0;
+            color: #fff;
+        }
+
+        .product-origin {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .score-badge {
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .status-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .status-badge.in-stock {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            border: 1px solid #00ff88;
+        }
+
+        .status-badge.out-of-stock {
+            background: rgba(255, 68, 68, 0.2);
+            color: #ff4444;
+            border: 1px solid #ff4444;
+        }
+
+        .price-info {
+            margin-top: 15px;
+        }
+
+        .best-price {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .best-platform {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .platform-list {
+            margin-top: 15px;
+        }
+
+        .platform-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .platform-item:last-child {
+            border-bottom: none;
+        }
+
+        .platform-name {
+            color: #aaa;
+        }
+
+        .platform-price {
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        .platform-link {
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .platform-link:hover {
+            text-decoration: underline;
+        }
+
+        .meta-info {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.85em;
+        }
+
+        .weekly-target {
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
+
+        .check-time {
+            color: #666;
+        }
+
+        .notes {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            font-size: 0.85em;
+            color: #888;
+        }
+
+        .refresh-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .refresh-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .refresh-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .alerts-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        .alerts-title {
+            font-size: 1.3em;
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+
+        .alert-item {
+            padding: 10px 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .alert-item.restock {
+            border-left: 3px solid #00ff88;
+        }
+
+        .alert-item.price_drop {
+            border-left: 3px solid #00d4ff;
+        }
+
+        .alert-message {
+            flex: 1;
+        }
+
+        .alert-time {
+            color: #666;
+            font-size: 0.85em;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐟 Grocery Manager</h1>
+            <p class="subtitle">Premium Sardines & Mackerel 库存监控</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value total">{{ stats.total }}</div>
+                <div class="stat-label">监控产品</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value available">{{ stats.available }}</div>
+                <div class="stat-label">有货</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value unavailable">{{ stats.unavailable }}</div>
+                <div class="stat-label">缺货</div>
+            </div>
+        </div>
+
+        <p class="last-update">最后更新: {{ last_update }}</p>
+
+        <div class="product-grid">
+            {% for product in watchlist %}
+            <div class="product-card {{ 'available' if product.is_available else 'unavailable' }}">
+                {% if product.image %}
+                <img src="{{ product.image }}" alt="{{ product.brand }}" class="product-image" onerror="this.style.display='none'">
+                {% endif %}
+
+                <div class="product-info">
+                    <div class="product-header">
+                        <div>
+                            <div class="product-brand">{{ product.brand }}</div>
+                            <div class="product-name">{{ product.name }}</div>
+                            <div class="product-origin">{{ product.origin }} · {{ product.size }}</div>
+                        </div>
+                        {% if product.score %}
+                        <div class="score-badge">{{ product.score }}/10</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="status-section">
+                        {% if product.is_available %}
+                        <span class="status-badge in-stock">✓ 有货</span>
+                        {% else %}
+                        <span class="status-badge out-of-stock">✗ 缺货</span>
+                        {% endif %}
+
+                        {% if product.best_price %}
+                        <div class="price-info">
+                            <span class="best-price">S${{ "%.2f"|format(product.best_price) }}</span>
+                            <span class="best-platform">@ {{ product.best_platform }}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    {% if product.available_platforms %}
+                    <div class="platform-list">
+                        {% for platform in product.available_platforms %}
+                        <div class="platform-item">
+                            <span class="platform-name">{{ platform.name }}</span>
+                            {% if platform.price %}
+                            <span class="platform-price">S${{ "%.2f"|format(platform.price) }}</span>
+                            {% endif %}
+                            {% if platform.url %}
+                            <a href="{{ platform.url }}" target="_blank" class="platform-link">购买 →</a>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <div class="meta-info">
+                        <span class="weekly-target">每周 {{ product.weekly_qty }} 盒</span>
+                        <span class="check-time">{{ product.last_checked }}</span>
+                    </div>
+
+                    {% if product.notes %}
+                    <div class="notes">{{ product.notes }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if alerts %}
+        <div class="alerts-section">
+            <h2 class="alerts-title">📢 最新提醒</h2>
+            {% for alert in alerts %}
+            <div class="alert-item {{ alert.alert_type }}">
+                <span class="alert-message">{{ alert.message }}</span>
+                <span class="alert-time">{{ alert.created_at.strftime('%m-%d %H:%M') }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <button class="refresh-btn" onclick="refreshData()">🔄 检查库存</button>
+
+    <script>
+        async function refreshData() {
+            const btn = document.querySelector('.refresh-btn');
+            btn.disabled = true;
+            btn.textContent = '检查中...';
+
+            try {
+                const response = await fetch('/api/check-all', { method: 'POST' });
+                const data = await response.json();
+                alert(`已检查 ${data.checked} 个产品`);
+                location.reload();
+            } catch (error) {
+                alert('检查失败: ' + error.message);
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '🔄 检查库存';
+            }
+        }
+
+        // Auto refresh every 5 minutes
+        setTimeout(() => location.reload(), 5 * 60 * 1000);
+    </script>
+</body>
+</html>
